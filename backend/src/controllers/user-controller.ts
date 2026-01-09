@@ -13,14 +13,14 @@ export const getAllUsers = async (
     //get all users
     const users = await User.find();
     return res.status(200).json({ message: "OK", users });
- } catch (error) {
-  if (error instanceof Error) {
+  } catch (error) {
+    if (error instanceof Error) {
+      console.log(error);
+      return res.status(500).json({ message: "ERROR", cause: error.message });
+    }
     console.log(error);
-    return res.status(500).json({ message: "ERROR", cause: error.message });
+    return res.status(500).json({ message: "ERROR", cause: "Unknown error" });
   }
-  console.log(error);
-  return res.status(500).json({ message: "ERROR", cause: "Unknown error" });
-}
 
 };
 
@@ -39,9 +39,9 @@ export const userSignup = async (
     await user.save();
 
     // create token and store cookie
+    // create token and store cookie
     res.clearCookie(COOKIE_NAME, {
       httpOnly: true,
-      domain: "localhost",
       signed: true,
       path: "/",
     });
@@ -51,7 +51,6 @@ export const userSignup = async (
     expires.setDate(expires.getDate() + 7);
     res.cookie(COOKIE_NAME, token, {
       path: "/",
-      domain: "127.0.0.1",
       expires,
       httpOnly: true,
       signed: true,
@@ -61,13 +60,13 @@ export const userSignup = async (
       .status(201)
       .json({ message: "OK", name: user.name, email: user.email });
   } catch (error) {
-  if (error instanceof Error) {
+    if (error instanceof Error) {
+      console.log(error);
+      return res.status(500).json({ message: "ERROR", cause: error.message });
+    }
     console.log(error);
-    return res.status(500).json({ message: "ERROR", cause: error.message });
+    return res.status(500).json({ message: "ERROR", cause: "Unknown error" });
   }
-  console.log(error);
-  return res.status(500).json({ message: "ERROR", cause: "Unknown error" });
-}
 
 };
 
@@ -90,9 +89,10 @@ export const userLogin = async (
 
     // create token and store cookie
 
+    // create token and store cookie
+
     res.clearCookie(COOKIE_NAME, {
       httpOnly: true,
-      domain: "localhost",
       signed: true,
       path: "/",
     });
@@ -102,7 +102,6 @@ export const userLogin = async (
     expires.setDate(expires.getDate() + 7);
     res.cookie(COOKIE_NAME, token, {
       path: "/",
-      domain: "localhost",
       expires,
       httpOnly: true,
       signed: true,
@@ -112,13 +111,13 @@ export const userLogin = async (
       .status(200)
       .json({ message: "OK", name: user.name, email: user.email });
   } catch (error) {
-  if (error instanceof Error) {
+    if (error instanceof Error) {
+      console.log(error);
+      return res.status(500).json({ message: "ERROR", cause: error.message });
+    }
     console.log(error);
-    return res.status(500).json({ message: "ERROR", cause: error.message });
+    return res.status(500).json({ message: "ERROR", cause: "Unknown error" });
   }
-  console.log(error);
-  return res.status(500).json({ message: "ERROR", cause: "Unknown error" });
-}
 
 };
 
@@ -140,13 +139,13 @@ export const verifyUser = async (
       .status(200)
       .json({ message: "OK", name: user.name, email: user.email });
   } catch (error) {
-  if (error instanceof Error) {
+    if (error instanceof Error) {
+      console.log(error);
+      return res.status(500).json({ message: "ERROR", cause: error.message });
+    }
     console.log(error);
-    return res.status(500).json({ message: "ERROR", cause: error.message });
+    return res.status(500).json({ message: "ERROR", cause: "Unknown error" });
   }
-  console.log(error);
-  return res.status(500).json({ message: "ERROR", cause: "Unknown error" });
-}
 
 };
 
@@ -167,7 +166,6 @@ export const userLogout = async (
 
     res.clearCookie(COOKIE_NAME, {
       httpOnly: true,
-      domain: "localhost",
       signed: true,
       path: "/",
     });
@@ -176,12 +174,12 @@ export const userLogout = async (
       .status(200)
       .json({ message: "OK", name: user.name, email: user.email });
   } catch (error) {
-  if (error instanceof Error) {
+    if (error instanceof Error) {
+      console.log(error);
+      return res.status(500).json({ message: "ERROR", cause: error.message });
+    }
     console.log(error);
-    return res.status(500).json({ message: "ERROR", cause: error.message });
+    return res.status(500).json({ message: "ERROR", cause: "Unknown error" });
   }
-  console.log(error);
-  return res.status(500).json({ message: "ERROR", cause: "Unknown error" });
-}
 
 };

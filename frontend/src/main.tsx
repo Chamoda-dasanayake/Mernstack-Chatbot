@@ -10,7 +10,7 @@ import axios from "axios";
 
 console.log("Main.tsx module loaded");
 
-axios.defaults.baseURL = "http://127.0.0.1:5000/api/v1";
+axios.defaults.baseURL = "http://localhost:5000/api/v1";
 axios.defaults.withCredentials = true;
 
 const theme = createTheme({

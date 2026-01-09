@@ -32,7 +32,10 @@ export const verifyToken = (
   res: Response,
   next: NextFunction
 ) => {
+  console.log("Unsigned Cookies:", req.cookies);
+  console.log("Signed Cookies:", req.signedCookies);
   const token = req.signedCookies[COOKIE_NAME];
+  
 
   if (!token || token.trim() === "") {
     return res.status(401).json({ message: "Token Not Received" });

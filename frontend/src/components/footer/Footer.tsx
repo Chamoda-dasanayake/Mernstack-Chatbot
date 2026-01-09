@@ -1,5 +1,5 @@
-import React from "react";
-import { Link } from "react-router-dom";
+
+
 
 const Footer = () => {
   return (
@@ -13,18 +13,7 @@ const Footer = () => {
         }}
       >
         <p style={{ fontSize: "30px", textAlign: "center", padding: "20px" }}>
-          Built With love by
-          <span>
-            <a
-              style={{ color: "white" }}
-              className="nav-link"
-              href="https://youtube.com/indiancoders"
-              target="_blank"
-              rel="noreferrer"
-            >
-              Indian Coders
-            </a>
-          </span>
+
         </p>
       </div>
     </footer>
