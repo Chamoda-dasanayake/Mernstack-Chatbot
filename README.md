@@ -1,4 +1,5 @@
-🤖 MERN AI Chatbot - Live on AWS
+🤖 #MERN AI Chatbot - Live on AWS
+
 A professional full-stack AI Chatbot application built using the MERN stack and integrated with Google Gemini AI. This project demonstrates a complete end-to-end deployment on AWS EC2 using Nginx and PM2.
 🚀 Live Demo
 Check out the live application here: http://54.153.130.77
