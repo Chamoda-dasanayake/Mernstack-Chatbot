@@ -46,7 +46,7 @@ const Signup = () => {
         alignItems={"center"}
         padding={2}
         ml={"auto"}
-        mt={16}
+        mt={8} // Reduced margin
       >
         <form
           onSubmit={handleSubmit}
