@@ -61,8 +61,8 @@ export const generateChatCompletion = async (
         .status(401)
         .json({ message: "User not registered OR Token malfunctioned" });
 
-    // 1. Initialize Gemini API
-    const apiKey = process.env.GEMINI_API_KEY || process.env.GEMINI_API_SECRET;
+
+        const apiKey = process.env.GEMINI_API_KEY || process.env.GEMINI_API_SECRET;
     if (!apiKey) {
       console.error("GEMINI_API_KEY is undefined/empty in process.env");
       return res.status(500).json({ message: "Server Error: API Key missing" });

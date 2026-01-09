@@ -31,8 +31,15 @@ const Chat = () => {
     }
     const newMessage: Message = { role: "user", content };
     setChatMessages((prev) => [...prev, newMessage]);
-    const chatData = await sendChatRequest(content);
-    setChatMessages([...chatData.chats]);
+    try {
+      const chatData = await sendChatRequest(content);
+      setChatMessages([...chatData.chats]);
+    } catch (error) {
+      console.error(error);
+      toast.error("Server is busy (Rate Limit). Please wait 30s.", { id: "chat-error" });
+      // Optional: Remove the user message if it failed? Or let them retry? 
+      // For now, simple error feedback is enough to answer "why is it not executing".
+    }
   };
 
   const handleDeleteChats = async () => {
@@ -186,12 +193,14 @@ const Chat = () => {
         {/* Input Area */}
         <div
           style={{
-            width: "100%",
+            width: "90%",
             maxWidth: "900px",
             borderRadius: 60,
             backgroundColor: "#2f3542",
             display: "flex",
-            margin: "0 auto",
+            margin: "0 auto", // Center horizontally
+            marginTop: "auto", // Push to bottom
+            marginBottom: "10px", // Small gap from very bottom
             padding: "8px",
           }}
         >

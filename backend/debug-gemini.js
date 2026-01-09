@@ -27,4 +27,4 @@ async function testModel(modelName) {
     }
 }
 
-testModel("gemini-pro");
+testModel("gemini-2.5-flash");

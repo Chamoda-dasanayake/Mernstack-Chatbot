@@ -1,5 +1,5 @@
 import Header from "./components/Header";
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route, useLocation } from "react-router-dom";
 import Home from "./pages/Home";
 import Login from "./pages/Login";
 import Signup from "./pages/Signup";
@@ -9,7 +9,7 @@ import { useAuth } from "./context/AuthContext";
 import Footer from "./components/footer/Footer";
 function App() {
   const auth = useAuth();
-  console.log("App Rendering. Auth:", auth);
+  const location = useLocation();
 
   return (
     <main>
@@ -23,7 +23,8 @@ function App() {
         )}
         <Route path="*" element={<NotFound />} />
       </Routes>
-      <Footer />
+      {/* Hide footer on chat page to allow full height layout */}
+      {location.pathname !== "/chat" && <Footer />}
     </main>
   );
 }
