@@ -62,7 +62,7 @@ export const generateChatCompletion = async (
         .json({ message: "User not registered OR Token malfunctioned" });
 
 
-        const apiKey = process.env.GEMINI_API_KEY || process.env.GEMINI_API_SECRET;
+    const apiKey = process.env.GEMINI_API_KEY || process.env.GEMINI_API_SECRET;
     if (!apiKey) {
       console.error("GEMINI_API_KEY is undefined/empty in process.env");
       return res.status(500).json({ message: "Server Error: API Key missing" });
@@ -92,7 +92,6 @@ export const generateChatCompletion = async (
       ]
     });
 
-    // 2. Prepare History: Gemini uses 'user' and 'model' roles
     const history = user.chats.map((c: any) => ({
       role: c.role === "assistant" ? "model" : "user",
       parts: [{ text: c.content }],
@@ -102,18 +101,14 @@ export const generateChatCompletion = async (
       history.pop();
     }
 
-    // 3. Start Chat Session with History
     const chatSession = model.startChat({
       history: history,
     });
 
-    // 4. Send the new message and get response
     const result = await chatSession.sendMessage(message);
 
-    // safe check for safety blocks
     try {
       const botResponseText = result.response.text();
-      // 5. Update Database
       user.chats.push({ role: "user", content: message });
       user.chats.push({ role: "assistant", content: botResponseText });
 

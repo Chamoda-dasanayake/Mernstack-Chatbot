@@ -37,8 +37,6 @@ const Chat = () => {
     } catch (error) {
       console.error(error);
       toast.error("Server is busy (Rate Limit). Please wait 30s.", { id: "chat-error" });
-      // Optional: Remove the user message if it failed? Or let them retry? 
-      // For now, simple error feedback is enough to answer "why is it not executing".
     }
   };
 

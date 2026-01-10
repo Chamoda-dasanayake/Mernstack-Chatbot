@@ -9,24 +9,20 @@ if (!JWT_SECRET) {
   throw new Error("JWT_SECRET is not defined in environment variables");
 }
 
-// ------------------
-// CREATE TOKEN 
-// ------------------
 export const createToken = (
   id: string,
   email: string,
   expiresIn: string | number
 ) => {
   const payload = { id, email };
-  
-  return jwt.sign(payload, JWT_SECRET, { 
+
+  return jwt.sign(payload, JWT_SECRET, {
     expiresIn: expiresIn as any
   });
 };
 
-// ------------------
 // VERIFY TOKEN 
-// ------------------
+
 export const verifyToken = (
   req: Request,
   res: Response,
@@ -35,7 +31,7 @@ export const verifyToken = (
   console.log("Unsigned Cookies:", req.cookies);
   console.log("Signed Cookies:", req.signedCookies);
   const token = req.signedCookies[COOKIE_NAME];
-  
+
 
   if (!token || token.trim() === "") {
     return res.status(401).json({ message: "Token Not Received" });

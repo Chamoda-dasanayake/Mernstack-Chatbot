@@ -39,7 +39,6 @@ export const userSignup = async (
     await user.save();
 
     // create token and store cookie
-    // create token and store cookie
     res.clearCookie(COOKIE_NAME, {
       httpOnly: true,
       signed: true,
@@ -86,8 +85,6 @@ export const userLogin = async (
     if (!isPasswordCorrect) {
       return res.status(403).send("Incorrect Password");
     }
-
-    // create token and store cookie
 
     // create token and store cookie
 
