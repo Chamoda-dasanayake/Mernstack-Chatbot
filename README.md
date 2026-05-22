@@ -1,13 +1,5 @@
 # 🤖 MERN AI Chatbot — Production-Grade Full-Stack AI System (AWS Deployed)
 
-<p align="center">
-  <img src="https://capsule-render.vercel.app/api?type=waving&color=0:0ea5e9,100:8b5cf6&height=90&section=header"/>
-</p>
-
-<p align="center">
-  <img src="https://readme-typing-svg.herokuapp.com?size=30&duration=3000&color=00C2FF&center=true&vCenter=true&width=750&lines=Full+Stack+AI+Chatbot+System;MERN+%2B+Google+Gemini+Integration;AWS+EC2+Production+Deployment;JWT+Secure+Authentication+Architecture" />
-</p>
-
 ---
 
 <p align="center">
