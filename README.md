@@ -103,12 +103,7 @@ AWS Layer:
 
 ---
 
-## 📈 Future Improvements
-
-- Real-time streaming responses  
-- Multi-user chat system  
-- AI memory enhancement  
-- Docker + CI/CD pipeline  
+## 📈 Future Improvements 
 - Analytics dashboard  
 - Mobile PWA version  
 
